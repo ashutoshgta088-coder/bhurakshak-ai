@@ -1,3 +1,4 @@
+import logoImg from '../../assets/logo.jpg'
 import './Footer.css'
 
 export default function Footer() {
@@ -5,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <span className="logo-icon">🛡️</span>
+          <img src={logoImg} alt="BhuRakshak AI Logo" className="footer-logo-img" />
           <span className="footer-name">BhuRakshak AI</span>
           <span className="footer-tag">AI for Safer Hills — People · Planet · Prepared</span>
         </div>

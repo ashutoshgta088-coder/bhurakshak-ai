@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
+import logoImg from '../../assets/logo.jpg'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner container">
         <Link to="/" className="navbar-brand" onClick={() => setMenuOpen(false)}>
-          <div className="brand-logo">🛡️</div>
+          <img src={logoImg} alt="BhuRakshak AI Logo" className="navbar-logo-img" />
           <div className="brand-text">
             <span className="brand-name">BhuRakshak <span className="brand-ai">AI</span></span>
             <span className="brand-tagline">AI for Safer Hills</span>

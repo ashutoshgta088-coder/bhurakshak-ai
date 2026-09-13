@@ -21,6 +21,14 @@
   justify-content: center;
 }
 
+.footer-logo-img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
 .footer-name {
   font-size: 16px;
   font-weight: 700;
