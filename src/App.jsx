@@ -31,13 +31,13 @@ function App() {
             <Route path="/otp-verify" element={<OTPVerification />} />
             <Route path="/report" element={<CitizenReporting />} />
 
-            {/* Protected */}
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/gis-map" element={<ProtectedRoute><GISMap /></ProtectedRoute>} />
-            <Route path="/location/:id" element={<ProtectedRoute><LocationDetails /></ProtectedRoute>} />
-            <Route path="/alerts" element={<ProtectedRoute><AlertsManagement /></ProtectedRoute>} />
-            <Route path="/analytics" element={<ProtectedRoute><AnalyticsDashboard /></ProtectedRoute>} />
-            <Route path="/admin" element={<ProtectedRoute><AdminSettings /></ProtectedRoute>} />
+            {/* All Public */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/gis-map" element={<GISMap />} />
+            <Route path="/location/:id" element={<LocationDetails />} />
+            <Route path="/alerts" element={<AlertsManagement />} />
+            <Route path="/analytics" element={<AnalyticsDashboard />} />
+            <Route path="/admin" element={<AdminSettings />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

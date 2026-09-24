@@ -16,21 +16,15 @@ export default function Navbar() {
     setMenuOpen(false)
   }
 
-  const authLinks = [
+  const navLinks = [
+    { to: '/', label: '🏠 Home' },
     { to: '/dashboard', label: '📊 Dashboard' },
     { to: '/gis-map', label: '🗺️ GIS Map' },
     { to: '/alerts', label: '🚨 Alerts' },
     { to: '/analytics', label: '📈 Analytics' },
     { to: '/report', label: '📝 Report' },
-    ...(userRole?.includes('Authority') ? [{ to: '/admin', label: '⚙️ Admin' }] : []),
+    { to: '/admin', label: '⚙️ Admin' },
   ]
-
-  const publicLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/report', label: '📝 Report Hazard' },
-  ]
-
-  const navLinks = authenticated ? authLinks : publicLinks
 
   return (
     <nav className="navbar">
