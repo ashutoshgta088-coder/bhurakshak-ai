@@ -1,0 +1,639 @@
+/* ==========================================================================
+   LoginPage.css - BhuRakshak AI Authentication Styles
+   Theme: Government-Tech Platform, Professional Blue-Green, Glassmorphism
+   ========================================================================== */
+
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-light, #f0f4f8);
+  font-family: var(--font-family, 'Inter', -apple-system, sans-serif);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Left Branding Panel
+   -------------------------------------------------------------------------- */
+.auth-brand-side {
+  flex: 1.1;
+  background: linear-gradient(135deg, #0a2540 0%, #0d47a1 35%, #1565c0 70%, #1b5e20 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 64px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Subtle background glowing orbs & grid */
+.auth-brand-side::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(67, 160, 71, 0.35) 0%, rgba(26, 115, 232, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.auth-brand-side::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(26, 115, 232, 0.4) 0%, rgba(46, 125, 50, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.brand-pattern-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.brand-top-bar {
+  position: relative;
+  z-index: 2;
+}
+
+.gov-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #e3f2fd;
+  margin-bottom: 24px;
+}
+
+.gov-badge-icon {
+  font-size: 1rem;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.brand-logo-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: #ffffff;
+}
+
+.brand-title-wrap h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  background: linear-gradient(135deg, #ffffff 60%, #bbf7d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #cfd8dc;
+  letter-spacing: 0.2px;
+}
+
+.brand-hero-content {
+  position: relative;
+  z-index: 2;
+  margin: 40px 0;
+}
+
+.brand-hero-headline {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.brand-hero-desc {
+  font-size: 0.98rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.brand-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 500px;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(6px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.highlight-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.highlight-text h4 {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.highlight-text p {
+  font-size: 0.8rem;
+  color: #b0bec5;
+  line-height: 1.4;
+}
+
+.brand-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  color: #90a4ae;
+}
+
+.brand-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Right Form Side
+   -------------------------------------------------------------------------- */
+.auth-form-side {
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--bg-light, #f0f4f8);
+  position: relative;
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 40px rgba(13, 71, 161, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  padding: 40px 36px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Mobile header branding inside card */
+.mobile-auth-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.mobile-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.mobile-logo-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-brand-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--dark-blue, #0d47a1);
+}
+
+.mobile-tagline {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #546e7a);
+  font-weight: 500;
+}
+
+/* Form Headings */
+.auth-card-header {
+  margin-bottom: 28px;
+}
+
+.auth-card-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-dark, #1a1a2e);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.auth-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #546e7a);
+  line-height: 1.5;
+}
+
+/* Demo Credentials Quick Switcher */
+.demo-accounts-pill-container {
+  background: #f1f6fd;
+  border: 1px solid #d4e4fa;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 22px;
+}
+
+.demo-pills-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--medium-blue, #1565c0);
+  margin-bottom: 8px;
+}
+
+.demo-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.demo-pill-btn {
+  background: #ffffff;
+  border: 1px solid #c9def8;
+  color: var(--dark-blue, #0d47a1);
+  padding: 5px 6px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.demo-pill-btn:hover {
+  background: var(--primary-blue, #1a73e8);
+  color: #ffffff;
+  border-color: var(--primary-blue, #1a73e8);
+}
+
+.demo-pill-btn.active {
+  background: var(--dark-blue, #0d47a1);
+  color: #ffffff;
+  border-color: var(--dark-blue, #0d47a1);
+}
+
+/* Alert Notification */
+.auth-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-alert-error {
+  background: #ffebee;
+  color: var(--danger, #e53935);
+  border: 1px solid #ffcdd2;
+}
+
+.auth-alert-success {
+  background: #e8f5e9;
+  color: var(--primary-green, #2e7d32);
+  border: 1px solid #c8e6c9;
+}
+
+/* Form Layout */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark, #1a1a2e);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-label-required {
+  color: var(--danger, #e53935);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-prefix {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  color: var(--text-secondary, #546e7a);
+  pointer-events: none;
+}
+
+.input-with-icon {
+  padding-left: 42px !important;
+}
+
+.input-with-toggle {
+  padding-right: 44px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text-secondary, #546e7a);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.select-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23546e7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px !important;
+  cursor: pointer;
+}
+
+/* Remember Me & Forgot Password Row */
+.form-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4px;
+  font-size: 0.85rem;
+}
+
+.remember-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary, #546e7a);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+}
+
+.remember-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-blue, #1a73e8);
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  color: var(--primary-blue, #1a73e8);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.forgot-password-link:hover {
+  color: var(--dark-blue, #0d47a1);
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  box-shadow: 0 4px 14px rgba(26, 115, 232, 0.35);
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-arrow-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Footer / Switch Screen */
+.auth-switch-prompt {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary, #546e7a);
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+}
+
+.auth-switch-link {
+  color: var(--primary-blue, #1a73e8);
+  font-weight: 700;
+  margin-left: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-switch-link:hover {
+  color: var(--dark-blue, #0d47a1);
+  text-decoration: underline;
+}
+
+/* Forgot password simple modal info */
+.forgot-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.forgot-modal-card {
+  background: #ffffff;
+  border-radius: 14px;
+  max-width: 420px;
+  width: 100%;
+  padding: 28px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: scaleIn 0.3s ease;
+}
+
+.forgot-modal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.forgot-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a2e);
+  margin-bottom: 8px;
+}
+
+.forgot-modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #546e7a);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .auth-brand-side {
+    padding: 40px;
+  }
+  
+  .auth-form-side {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .auth-brand-side {
+    display: none;
+  }
+
+  .auth-form-side {
+    flex: 1;
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px 16px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .auth-form-card {
+    max-width: 100%;
+    padding: 28px 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .mobile-auth-header {
+    display: block;
+  }
+  
+  .demo-pills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

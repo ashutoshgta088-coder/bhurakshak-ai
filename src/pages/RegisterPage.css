@@ -1,0 +1,349 @@
+/* ==========================================================================
+   RegisterPage.css - BhuRakshak AI Registration Styles
+   Theme: Government-Tech Platform, Professional Blue-Green, Glassmorphism
+   ========================================================================== */
+
+.register-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-light, #f0f4f8);
+  font-family: var(--font-family, 'Inter', -apple-system, sans-serif);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Left Branding Panel
+   -------------------------------------------------------------------------- */
+.register-brand-side {
+  flex: 0.95;
+  background: linear-gradient(145deg, #091e3a 0%, #0d47a1 30%, #1565c0 65%, #1e4620 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 56px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.register-brand-side::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(67, 160, 71, 0.3) 0%, rgba(26, 115, 232, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.register-brand-side::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(26, 115, 232, 0.35) 0%, rgba(46, 125, 50, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(45px);
+}
+
+.register-pattern-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.register-brand-top {
+  position: relative;
+  z-index: 2;
+}
+
+.register-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.register-logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+}
+
+.register-brand-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 60%, #bbf7d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.register-brand-tagline {
+  font-size: 0.88rem;
+  color: #cfd8dc;
+  font-weight: 500;
+}
+
+.register-brand-content {
+  position: relative;
+  z-index: 2;
+  margin: 32px 0;
+}
+
+.register-brand-content h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.register-brand-content p {
+  font-size: 0.92rem;
+  color: #d2dbe0;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* NE Coverage Pill Bar */
+.ne-states-coverage-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.coverage-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: #a7f3d0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coverage-state-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.state-chip {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+/* Steps / Feature List */
+.register-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reg-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.86rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.reg-feature-icon {
+  background: rgba(46, 125, 50, 0.4);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  color: #86efac;
+}
+
+.register-brand-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   Right Form Side
+   -------------------------------------------------------------------------- */
+.register-form-side {
+  flex: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 32px;
+  background: var(--bg-light, #f0f4f8);
+  overflow-y: auto;
+}
+
+.register-form-card {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 40px rgba(13, 71, 161, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  padding: 36px 36px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.register-header {
+  margin-bottom: 22px;
+}
+
+.register-header h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-dark, #1a1a2e);
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.register-header p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #546e7a);
+}
+
+/* Two-column responsive grid inside form */
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+/* Password Match Indicator */
+.password-match-hint {
+  font-size: 0.76rem;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.hint-success {
+  color: var(--primary-green, #2e7d32);
+}
+
+.hint-error {
+  color: var(--danger, #e53935);
+}
+
+/* Terms Checkbox */
+.terms-agreement-row {
+  margin-top: 4px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #546e7a);
+  cursor: pointer;
+  line-height: 1.45;
+}
+
+.terms-checkbox {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-blue, #1a73e8);
+  cursor: pointer;
+}
+
+/* Mobile Header */
+.register-mobile-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .register-brand-side {
+    padding: 36px 30px;
+  }
+
+  .register-form-side {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 940px) {
+  .register-brand-side {
+    display: none;
+  }
+
+  .register-form-side {
+    flex: 1;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 14px;
+    align-items: flex-start;
+  }
+
+  .register-form-card {
+    max-width: 100%;
+    padding: 26px 18px;
+  }
+
+  .register-mobile-header {
+    display: block;
+  }
+
+  .form-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

@@ -1,0 +1,739 @@
+/* ===== Sensor Monitoring Network Styles ===== */
+
+.sensor-monitoring-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.4s ease;
+  padding-bottom: 32px;
+}
+
+/* Page Header */
+.sensor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.9));
+}
+
+.sensor-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sensor-header-icon {
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.15);
+  border: 1px solid rgba(2, 136, 209, 0.2);
+  flex-shrink: 0;
+}
+
+.sensor-header-text h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.sensor-header-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 650px;
+}
+
+.sensor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Live Data Indicator */
+.sensor-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(46, 125, 50, 0.1);
+  color: var(--primary-green);
+  border: 1.5px solid rgba(46, 125, 50, 0.3);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(46, 125, 50, 0.12);
+}
+
+.pulse-beacon-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2e7d32;
+  box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  animation: radarPulse 1.8s infinite;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(46, 125, 50, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+.sensor-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--primary-blue);
+  border: 1.5px solid var(--primary-blue);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sensor-refresh-btn:hover {
+  background: var(--light-blue);
+  transform: translateY(-1px);
+}
+
+.sensor-refresh-btn.spinning .refresh-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Sensor Summary Cards */
+.sensor-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sensor-summary-card {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sensor-summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Variants */
+.sensor-summary-card.total-card {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.95), rgba(219, 234, 254, 0.85));
+  border-left: 5px solid var(--primary-blue);
+}
+
+.sensor-summary-card.online-card {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.95), rgba(220, 252, 231, 0.85));
+  border-left: 5px solid var(--primary-green);
+}
+
+.sensor-summary-card.warning-card {
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.95), rgba(254, 243, 199, 0.85));
+  border-left: 5px solid var(--warning);
+}
+
+.sensor-summary-card.offline-card {
+  background: linear-gradient(135deg, rgba(254, 242, 242, 0.95), rgba(254, 226, 226, 0.85));
+  border-left: 5px solid var(--danger);
+}
+
+.summary-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.summary-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.total-card .summary-card-value { color: var(--dark-blue); }
+.online-card .summary-card-value { color: var(--primary-green); }
+.warning-card .summary-card-value { color: #d97706; }
+.offline-card .summary-card-value { color: var(--danger); }
+
+.summary-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.summary-badge-blue { background: rgba(26, 115, 232, 0.15); color: var(--dark-blue); }
+.summary-badge-green { background: rgba(46, 125, 50, 0.15); color: var(--primary-green); }
+.summary-badge-yellow { background: rgba(245, 158, 11, 0.15); color: #b45309; }
+.summary-badge-red { background: rgba(229, 57, 53, 0.15); color: var(--danger); }
+
+/* Filter Section */
+.sensor-filters-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 24px;
+  border-radius: var(--radius-lg);
+}
+
+.type-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.type-filter-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.type-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: white;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.type-filter-btn:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  background: var(--light-blue);
+}
+
+.type-filter-btn.active {
+  background: linear-gradient(135deg, var(--primary-blue), var(--medium-blue));
+  color: white;
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 14px rgba(26, 115, 232, 0.35);
+}
+
+.type-filter-btn .filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+.type-filter-btn.active .filter-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.sensor-search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  gap: 8px;
+  min-width: 260px;
+}
+
+.sensor-search-box input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+/* Sensor Data Grid */
+.sensor-data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sensor-card {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.sensor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-card.card-warning {
+  border-left: 4px solid var(--warning);
+}
+
+.sensor-card.card-offline {
+  border-left: 4px solid var(--danger);
+  opacity: 0.85;
+}
+
+.sensor-card.card-online {
+  border-left: 4px solid var(--primary-green);
+}
+
+.sensor-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.sensor-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sensor-type-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.icon-soil { background: #e8f5e9; color: var(--primary-green); }
+.icon-rain { background: #e1f5fe; color: #0288d1; }
+.icon-ground { background: #f3e5f5; color: #7b1fa2; }
+
+.sensor-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.sensor-id-text {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+}
+
+.sensor-type-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Status Badges */
+.sensor-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.status-online {
+  background: #e8f5e9;
+  color: var(--primary-green);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.status-warning {
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+.status-offline {
+  background: #ffebee;
+  color: var(--danger);
+  border: 1px solid rgba(229, 57, 53, 0.3);
+}
+
+.status-dot-sm {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-online .status-dot-sm {
+  background: var(--primary-green);
+  box-shadow: 0 0 6px var(--primary-green);
+}
+
+.status-warning .status-dot-sm {
+  background: var(--warning);
+  box-shadow: 0 0 6px var(--warning);
+}
+
+.status-offline .status-dot-sm {
+  background: var(--danger);
+}
+
+/* Sensor Location Info */
+.sensor-location-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Sensor Value Display */
+.sensor-value-block {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sensor-val-number {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.val-green { color: var(--primary-green); }
+.val-yellow { color: #d97706; }
+.val-red { color: var(--danger); }
+.val-blue { color: #0284c7; }
+
+.sensor-val-unit {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.sensor-metric-name {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Battery Level Section */
+.sensor-battery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.battery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.battery-track {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.battery-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Battery color coding specified: >70% green, 30-70% yellow, <30% red */
+.battery-high {
+  background: linear-gradient(90deg, #4caf50, #2e7d32);
+}
+
+.battery-med {
+  background: linear-gradient(90deg, #fbc02d, #f57c00);
+}
+
+.battery-low {
+  background: linear-gradient(90deg, #ef5350, #c62828);
+}
+
+/* Sensor Card Footer */
+.sensor-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.reading-timestamp {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.signal-strength {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+/* Sensor Health Overview Section */
+.sensor-health-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sensor-health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sensor-health-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sensor-health-title h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.table-responsive-health {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.sensor-health-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+  background: white;
+}
+
+.sensor-health-table th {
+  background: #f8fafc;
+  padding: 14px 16px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.sensor-health-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+.sensor-health-table tbody tr:hover {
+  background-color: #f1f7ff;
+}
+
+.health-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.health-nominal { background: #e8f5e9; color: var(--primary-green); }
+.health-warning { background: #fff3e0; color: #e65100; }
+.health-critical { background: #ffebee; color: var(--danger); }
+
+.battery-cell-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-battery-track {
+  width: 50px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.health-action-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: white;
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.health-action-btn:hover {
+  background: var(--light-blue);
+}
+
+/* Empty State */
+.sensor-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+  color: var(--text-secondary);
+}
+
+.sensor-empty-state p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .sensor-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sensor-data-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sensor-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sensor-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .sensor-filters-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .type-filter-group {
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .sensor-search-box {
+    width: 100%;
+  }
+  .sensor-data-grid {
+    grid-template-columns: 1fr;
+  }
+}
